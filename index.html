@@ -105,6 +105,14 @@ td.h small{display:block;color:var(--mute);font-weight:600;font-size:12px;margin
 .wa{display:block;text-align:center;text-decoration:none;background:#25D366;color:#04210F;font-weight:800;border-radius:14px;padding:12px;line-height:1.25}
 .wa small{color:#04210F;letter-spacing:0;font-weight:600;font-size:15px}
 @media (max-width:380px){h1{font-size:38px}.c{font-size:12.5px}td.h{font-size:13px}th:first-child{width:50px}}
+dialog.m{width:min(94vw,680px);max-height:90vh;padding:0;border:2px solid var(--teal);border-radius:10px;background:var(--card);color:#F4F8FC;overflow:auto}
+dialog.m::backdrop{background:rgba(0,0,0,.82)}
+.m .mh{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;gap:10px;background:#000;border-bottom:2px solid var(--teal);padding:10px 14px}
+.m .mh h3{margin:0;font-size:22px}
+.m .x{border:0;background:var(--teal);color:#000;font-family:var(--display);font-weight:700;font-size:20px;width:40px;height:40px;border-radius:50%;cursor:pointer;line-height:1}
+.m .mb{padding:16px}
+.m .mb p{margin-bottom:12px;font-size:17px;line-height:1.6}
+.m .mb img{display:block;width:100%;height:auto;border-radius:6px}
 </style>
 </head>
 <body id="top">
@@ -165,10 +173,17 @@ td.h small{display:block;color:var(--mute);font-weight:600;font-size:12px;margin
   <div class="g"><div><h3>Entrenamiento Físico</h3><span class="a">Preparación física</span></div><div></div>
    <div class="t">Martes y jueves · 20:30 a 21:30</div>
    <div class="acts"><a class="btn alt" href="https://wa.me/5492645753607"><span>Consultar</span></a><a class="btn main" href="https://docs.google.com/forms/d/e/1FAIpQLScZu_m7O1VJf0j6ELTAdcpJOOR_rSbiSbVfjDS7KRfhnK27vg/viewform"><span>Inscribirme</span></a></div></div>
-  <details><summary>Cronograma del mes y eventos</summary><div><p class="mute">Salidas, jams y encuentros del mes.</p><a class="btn alt" style="margin-top:10px" href="#"><span>Abrir Drive del mes</span></a></div></details>
+  <details class="eventos" open>
+    <summary>Cronograma de eventos OPK</summary>
+    <div>
+      <p class="mute">Consultá el calendario actualizado de salidas, viajes, encuentros, jams y actividades especiales de nuestra comunidad.</p>
+      <a class="btn alt" style="margin-top:14px" href="https://drive.google.com/file/d/1cfwbz6vsLchrPFl8kiBaWYV1HzxR4MXF/view?usp=sharing" target="_blank" rel="noopener noreferrer"><span>🗓️ Noviembre 2026</span></a>
+      <a class="btn main" style="margin-top:12px" href="https://drive.google.com/file/d/1c3xaLb_-z58BsQ2J5SRGRtVzO0GrxNEY/view?usp=drive_link" target="_blank" rel="noopener noreferrer"><span>📅 Ver cronograma de eventos</span></a>
+      <p class="mute" style="margin-top:9px;font-size:14px">Se abrirá la imagen del cronograma en Google Drive en una nueva pestaña.</p>
+    </div>
+  </details>
   <details><summary>Más que clases</summary><div>
-    <p><b>Recreación:</b> Día del Padre, Día de la Madre, Día del Niño, deportes alternativos.</p>
-    <p style="margin-top:6px"><b>Deporte:</b> competencias, exhibiciones, viajes, salidas al aire libre, pijamadas y más.</p>
+    <p><b>Deporte:</b> competencias, exhibiciones, viajes, salidas al aire libre, pijamadas y más.</p>
   </div></details>
 </section>
 
@@ -177,6 +192,7 @@ td.h small{display:block;color:var(--mute);font-weight:600;font-size:12px;margin
   <div class="card">
     <h3>Individual</h3>
     <div class="price"><span>Inscripción</span><b>$20.000</b></div>
+    <div class="price"><span>Clase individual</span><b>$10.000</b></div>
     <div class="price"><span>1 vez por semana</span><b>$31.000</b></div>
     <div class="price"><span>2 veces por semana</span><b>$41.000</b></div>
     <div class="price"><span>3 veces por semana</span><b>$51.000</b></div>
@@ -215,6 +231,7 @@ td.h small{display:block;color:var(--mute);font-weight:600;font-size:12px;margin
 
 <section id="nosotros">
   <h2>Nosotros</h2>
+  <button type="button" class="btn main" style="width:100%;margin-bottom:12px;cursor:pointer;border:0" onclick="openM('mNos')"><span>Ver nuestra presentación</span></button>
   <div class="card">
     <h3>Comunidad OPK</h3>
     <p>OPK (Orquera Parkour Kinect) es un centro de formación en movimiento. Somos una comunidad donde cada alumno entrena junto a otros, se apoya, se anima y crece. Las familias son parte: festejos, salidas, torneos y encuentros durante todo el año.</p>
@@ -258,6 +275,16 @@ td.h small{display:block;color:var(--mute);font-weight:600;font-size:12px;margin
   <a class="btn alt" href="https://drive.google.com/file/d/1js8sWxIrPPSa0nWb5V9mZEkrcP9FiURi/view"><span>Términos y condiciones</span></a>
 </section>
 
+<dialog class="m" id="mNos" aria-labelledby="tNos">
+  <div class="mh"><h3 id="tNos">Nuestra presentación</h3><button class="x" type="button" aria-label="Cerrar" onclick="this.closest('dialog').close()">✕</button></div>
+  <div class="mb">
+    <p><b>OPK (Orquera Parkour Kinect)</b><br>Es un centro de formación en movimiento ubicado en la provincia de San Juan, orientado a la enseñanza del parkour desde un enfoque educativo, seguro y profesional. Nuestro objetivo es promover el desarrollo físico, mental y emocional de niños, niñas y adolescentes a través de una disciplina que fomenta la autoconfianza, la creatividad, la perseverancia y el respeto.</p>
+    <p>Contamos con un equipo de instructores conformado por estudiantes avanzados de la carrera de Educación Física con sólida experiencia en la práctica del parkour: Martín Salinas, Ignacio Peralta, Agustín Ortiz, Prof. Sebastián Archilla, Giovanni Tallei, Ezequiel Guarro, Brian González, bajo la coordinación general de Orquera Santiago, Licenciado en Educación Física. Juntos, trabajamos con vocación pedagógica, priorizando siempre la seguridad, el acompañamiento personalizado y la formación integral de cada alumno.</p>
+    <p>En OPK creemos que el parkour no es solo una actividad física, sino una herramienta educativa poderosa que permite a los jóvenes explorar sus capacidades, superar límites de manera consciente y construir una relación sana con su cuerpo y su entorno.</p>
+    <p>Invitamos a las familias a conocer nuestro espacio y a confiar en un equipo comprometido con el crecimiento y bienestar de sus hijos.</p>
+  </div>
+</dialog>
+
 <footer><b>Entrená. Superate. Repetí.</b><br>© OPK Escuela de Parkour · San Juan</footer>
 
 <div class="bar">
@@ -266,6 +293,8 @@ td.h small{display:block;color:var(--mute);font-weight:600;font-size:12px;margin
 </div>
 
 <script>
+function openM(id){var d=document.getElementById(id);if(d&&d.showModal)d.showModal()}
+document.querySelectorAll('dialog.m').forEach(function(d){d.addEventListener('click',function(e){if(e.target===d)d.close()})});
 function cp(b,t){try{navigator.clipboard.writeText(t);b.textContent="Copiado"}catch(e){}}
 </script>
 </body>
